@@ -1,155 +1,125 @@
-<p align="center">
-  <img src="https://raw.githubusercontent.com/ke2hni/.github/main/assets/dvswitch-dark-banner.png" alt="DVSwitch Dashboard Dark Mode" width="100%">
-</p>
-
-<h1 align="center">DVSwitch Dashboard Dark Mode Overlay</h1>
+# 🌙 DVSwitch Dashboard Dark Mode Overlay
 
 <p align="center">
-  Lightweight Auto / Light / Dark theme overlay for the stock DVSwitch Dashboard
-  <br>
-  Built for ASL3 / Debian 13 systems
+  <img src="https://img.shields.io/badge/DVSwitch-Dark%20Mode%20Overlay-blueviolet?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Version-v0.25--test-brightgreen?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Debian%2013-Trixie-red?style=for-the-badge&logo=debian">
+  <img src="https://img.shields.io/badge/ASL3-Compatible-success?style=for-the-badge">
 </p>
 
 ---
 
-# DVSwitch Dashboard Dark Mode Overlay
+## 📌 Overview
 
-A lightweight modern dark-mode overlay system for the stock DVSwitch Dashboard.
+The **DVSwitch Dashboard Dark Mode Overlay** adds a modern Auto / Light / Dark theme system to the stock DVSwitch Dashboard while preserving original dashboard functionality and upstream behavior.
 
-This project adds:
+This project is designed around:
 
-- Auto / Light / Dark theme support
-- Responsive dark styling
-- AJAX-safe live table theming
-- Preserved semantic network/status colors
-- Safe rollback support
-- Protected factory backups
-- Reversible overlay patching
+```text
+Safe overlay patching
+Minimal file modification
+AJAX-safe dark styling
+Production-safe rollback support
+```
 
-The goal is to modernize the dashboard appearance while:
-
-- preserving original DVSwitch functionality
-- preserving upstream runtime behavior
-- avoiding large rewrites
-- remaining lightweight
-- remaining safe for production nodes
+The goal is to modernize the dashboard appearance without replacing the original DVSwitch dashboard logic.
 
 ---
 
-# Features
+## 📥 Installation
 
-## Auto / Light / Dark Modes
-
-Theme selector added directly into the dashboard header:
-
-- Auto
-  - follows browser/system dark mode
-- Light
-  - original-style light dashboard
-- Dark
-  - modern dark dashboard
+```bash
+git clone https://github.com/ke2hni/DVSwitch-Dark-Mode.git
+cd DVSwitch-Dark-Mode
+chmod +x dvswitch-dark-mode.sh
+sudo ./dvswitch-dark-mode.sh
+```
 
 ---
 
-## AJAX-Safe Live Activity Styling
+## 🎨 Features
+
+### 🌗 Auto / Light / Dark Theme Modes
+
+Adds a live theme selector directly into the dashboard header:
+
+| Mode  | Description                      |
+| ----- | -------------------------------- |
+| Auto  | Follows browser/system dark mode |
+| Light | Original-style light dashboard   |
+| Dark  | Modern dark dashboard            |
+
+---
+
+### ⚡ AJAX-Safe Live Dashboard Styling
 
 The DVSwitch dashboard refreshes several sections every 1.5 seconds.
 
-This overlay safely re-applies dark styling after live updates for:
+This overlay safely preserves dark mode styling during live updates for:
 
-- Gateway Activity
-- Local Activity
+* Gateway Activity
+* Local Activity
 
-without breaking live RX/TX updates or semantic colors.
+without breaking live RX/TX activity or dashboard refresh logic.
 
 ---
 
-## Semantic Status Color Preservation
+### 🎯 Semantic Color Preservation
 
-The overlay intentionally preserves important live colors such as:
+The overlay intentionally preserves important live dashboard colors including:
 
-- RX/TX indicators
-- BER/Loss indicators
-- Green/Red/Orange status cells
-- Temperature threshold colors
+* RX/TX indicators
+* BER/Loss indicators
+* Status colors
+* CPU temperature threshold colors
+* Network activity indicators
 
 No destructive global recoloring is performed.
 
 ---
 
-## Safe Backup / Restore System
+### 🛡️ Safe Backup / Restore System
 
 The script automatically creates:
 
-### Protected Original Backup
+#### Protected Original Backup
 
-Created once:
-
+```text
 /usr/share/dvswitch/.dvs-dashboard-original-backup
+```
 
-This backup is never overwritten.
+Created once and never overwritten.
 
 ---
 
-### Per-Run Backups
+#### Per-Run Backups
 
-Created on every apply:
-
+```text
 /usr/share/dvswitch/.dvs-dashboard-theme-backup-YYYYMMDD-HHMMSS
+```
 
-Allows safe rollback/testing.
-
----
-
-# Supported Systems
-
-Tested on:
-
-- ASL3
-- Debian 13 (Trixie)
-- Raspberry Pi 4
-- Raspberry Pi 5
-
-Designed for:
-
-- DVSwitch Server dashboard
-- production nodes
-- test nodes
-- lab systems
+Created during every apply operation for safe rollback/testing.
 
 ---
 
-# Installation
+## 📋 Menu
 
-## Quick Install
-
-Download the script:
-
-wget https://raw.githubusercontent.com/ke2hni/DVSwitch-Dark-Mode/main/dvswitch-dark-mode.sh
-
-Make executable:
-
-chmod +x dvswitch-dark-mode.sh
-
-Run the installer:
-
-sudo ./dvswitch-dark-mode.sh
-
----
-
-# Menu Options
+```text
+DVSwitch Dashboard Theme Overlay v0.25-test
 
 1 = Apply Auto/Light/Dark theme toggle
 2 = Restore latest run backup
 3 = Restore original factory dashboard files
 0 = Exit
+```
 
 ---
 
-# What The Script Modifies
+## 🧩 What The Script Modifies
 
-The overlay safely works with:
+### Dashboard Files
 
+```text
 /usr/share/dvswitch/index.php
 /usr/share/dvswitch/css/css.php
 /usr/share/dvswitch/css/css-mini.php
@@ -157,125 +127,138 @@ The overlay safely works with:
 /usr/share/dvswitch/include/lh.php
 /usr/share/dvswitch/include/localtx.php
 /usr/share/dvswitch/include/system.php
+```
 
-Additional overlay files created:
+### Overlay Files Created
 
+```text
 /usr/share/dvswitch/css/dvs-theme.css
 /usr/share/dvswitch/scripts/dvs-theme.js
+```
 
 ---
 
-# Design Philosophy
+## 🧠 Design Philosophy
 
 This project intentionally avoids:
 
-- large dashboard rewrites
-- replacing runtime logic
-- destructive theme engines
-- unsafe global CSS replacements
+* large dashboard rewrites
+* replacing runtime dashboard logic
+* unsafe global CSS replacements
+* destructive theme engines
 
 Instead it uses:
 
-- surgical CSS overlays
-- lightweight JS helpers
-- AJAX-safe post-refresh styling
-- reversible patch logic
+* surgical CSS overlays
+* lightweight JavaScript helpers
+* AJAX-safe post-refresh styling
+* reversible patch logic
 
 ---
 
-# Important Notes
+## 🔄 AJAX Refresh Awareness
 
-## This Is An Overlay System
-
-This project is NOT a replacement dashboard.
-
-It overlays styling onto the stock DVSwitch dashboard while preserving:
-
-- dashboard logic
-- refresh behavior
-- live updates
-- upstream compatibility
-
----
-
-## AJAX Refresh Awareness
-
-Several dashboard sections refresh dynamically.
+Several DVSwitch dashboard sections refresh dynamically.
 
 Examples:
 
+```javascript
 $("#lastHerd").load("include/lh.php"...)
 $("#localTxs").load("include/localtx.php"...)
+```
 
 Because of this:
 
-- broad CSS replacements are unsafe
-- global recoloring is avoided
-- section-specific targeting is required
+* broad CSS replacements are unsafe
+* global recoloring is avoided
+* section-specific targeting is required
+
+This overlay safely re-applies styling after refresh events.
 
 ---
 
-# Restore Options
+## 🔁 Restore Options
 
-## Restore Latest Backup
+### Restore Latest Backup
 
 Restores the most recent backup created by the script.
 
 ---
 
-## Restore Factory Dashboard
+### Restore Factory Dashboard
 
 Restores the original untouched dashboard files from the protected original backup.
 
-This allows returning to the stock dashboard without reinstalling DVSwitch.
+Allows returning to stock DVSwitch dashboard files without reinstalling DVSwitch.
 
 ---
 
-# Project Goals
+## 🧪 Tested Systems
 
-Long-term goals include:
+* Debian 13 / Trixie
+* ASL3
+* Raspberry Pi 4
+* Raspberry Pi 5
 
-- cleaner modern UI
-- additional theme options
-- accessibility improvements
-- compact mode
-- update-safe overlays
-- GitHub release packaging
-- public installer/uninstaller support
+Tested against:
 
-while still remaining:
-
-- lightweight
-- reversible
-- upstream-friendly
-- safe for real radio systems
+* production nodes
+* lab nodes
+* responsive-layout patched systems
 
 ---
 
-# Screenshot Goals
+## 🎯 Long-Term Project Goals
 
-Recommended future screenshots:
+Future goals include:
 
-- Light Mode
-- Dark Mode
-- Auto Mode
-- Gateway Activity
-- Local Activity
-- Hardware Info
-- Mobile/Responsive Layout
+* cleaner modern UI
+* additional themes
+* compact mode
+* accessibility improvements
+* user-selectable accent colors
+* update-safe overlays
+* GitHub release packaging
+* install/uninstall helper scripts
+
+while remaining:
+
+```text
+lightweight
+reversible
+upstream-friendly
+safe for real radio systems
+```
 
 ---
 
-# Author
+## 📌 Current Stable Baseline
 
-KE2HNI
+```text
+dvswitch-dark-mode.sh
+Theme Overlay Baseline: v0.25-test
+```
+
+Includes:
+
+* Auto / Light / Dark modes
+* AJAX-safe Gateway Activity theming
+* AJAX-safe Local Activity theming
+* Hardware Info dark styling
+* protected factory backups
+* restore support
+* backup-folder creation fix
 
 ---
 
-# License
-
-MIT License
+## 📜 License
 
 Use at your own risk.
 
 Always test on a non-production node first.
+
+---
+
+<p align="center">
+  🌙 Built to modernize DVSwitch Dashboard safely without breaking upstream behavior
+</p>
