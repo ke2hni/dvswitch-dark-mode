@@ -123,7 +123,6 @@ DVSwitch Dashboard Theme Overlay v1.0
 /usr/share/dvswitch/index.php
 /usr/share/dvswitch/css/css.php
 /usr/share/dvswitch/css/css-mini.php
-/usr/share/dvswitch/include/status.php
 /usr/share/dvswitch/include/lh.php
 /usr/share/dvswitch/include/localtx.php
 /usr/share/dvswitch/include/system.php
