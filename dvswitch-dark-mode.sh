@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -u
 
-VERSION="0.25-test"
+VERSION="1.0"
 ROOT="/usr/share/dvswitch"
 ORIGINAL_BACKUP_DIR="$ROOT/.dvs-dashboard-original-backup"
 CSS_FILE="$ROOT/css/dvs-theme.css"
@@ -21,14 +21,7 @@ need_root(){
 }
 
 dashboard_files(){
-  printf '%s\n' \
-    "index.php" \
-    "css/css.php" \
-    "css/css-mini.php" \
-    "include/status.php" \
-    "include/lh.php" \
-    "include/localtx.php" \
-    "include/system.php"
+  printf '%s\n' "index.php"
 }
 
 copy_dashboard_file_set(){
@@ -397,16 +390,12 @@ body.theme-auto.dvs-prefers-dark .dropdown-content a:hover {
   background-color: #374151 !important;
 }
 
-body.theme-dark .link,
-body.theme-auto.dvs-prefers-dark .link,
 body.theme-dark .dropbtn,
 body.theme-auto.dvs-prefers-dark .dropbtn {
   background-color: #2563eb !important;
   color: #ffffff !important;
 }
 
-body.theme-dark .link:hover,
-body.theme-auto.dvs-prefers-dark .link:hover,
 body.theme-dark .dropbtn:hover,
 body.theme-auto.dvs-prefers-dark .dropbtn:hover {
   background-color: #1d4ed8 !important;
