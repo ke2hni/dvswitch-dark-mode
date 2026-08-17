@@ -105,7 +105,7 @@ Created during every apply operation for safe rollback/testing.
 ## 📋 Menu
 
 ```text
-DVSwitch Dashboard Theme Overlay v0.25-test
+DVSwitch Dashboard Theme Overlay v1.0
 
 1 = Apply Auto/Light/Dark theme toggle
 2 = Restore latest run backup
@@ -236,7 +236,7 @@ safe for real radio systems
 
 ```text
 dvswitch-dark-mode.sh
-Theme Overlay Baseline: v0.25-test
+Theme Overlay Baseline: v1.0
 ```
 
 Includes:
