@@ -3,7 +3,7 @@
 <p align="center">
   <img src="https://img.shields.io/badge/DVSwitch-Dark%20Mode%20Overlay-blueviolet?style=for-the-badge">
   <img src="https://img.shields.io/badge/Version-v1.0-brightgreen?style=for-the-badge">
-  <img src="https://img.shields.io/badge/Debian%2012-Bokworm-orange?style=for-the-badge&logo=bookworm">
+  <img src="https://img.shields.io/badge/Debian%2012-Bookworm-orange?style=for-the-badge&logo=bookworm">
   <img src="https://img.shields.io/badge/Debian%2013-Trixie-red?style=for-the-badge&logo=debian">
   <img src="https://img.shields.io/badge/ASL3-Compatible-success?style=for-the-badge">
 </p>
